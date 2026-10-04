@@ -1,3 +1,5 @@
+using BookVault.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -22,6 +24,19 @@ app.MapGet("/health", () =>
     return Results.Ok(new
     {
         status = "healthy"
+    });
+});
+
+app.MapGet("/livro-exemplo", () =>
+{
+    return Results.Ok(new Livro
+    {
+        Id = Guid.NewGuid(),
+        Titulo = "Anne de Green Gables",
+        Autor = "L. M. Montgomery",
+        Sinopse = "A história de Anne Shirley, uma jovem órfã enviada por engano para Green Gables.",
+        AnoPublicacao = 1908,
+        DataCadastro = DateTime.UtcNow
     });
 });
 
