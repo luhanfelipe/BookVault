@@ -32,6 +32,13 @@ app.MapGet("/health", () =>
     });
 });
 
+app.MapGet("/livros", async (AppDbContext db) =>
+{
+    var livros = await db.Livros.ToListAsync();
+
+    return Results.Ok(livros);
+});
+
 app.MapGet("/livro-exemplo", () =>
 {
     return Results.Ok(new Livro
