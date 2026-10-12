@@ -70,6 +70,21 @@ app.MapPut("/livros/{id:guid}", async (Guid id, Livro dadosAtualizados, AppDbCon
     return Results.Ok(livro);
 });
 
+app.MapDelete("/livros/{id:guid}", async (Guid id, AppDbContext db) =>
+{
+    var livro = await db.Livros.FindAsync(id);
+
+    if (livro is null)
+    {
+        return Results.NotFound();
+    }
+
+    db.Livros.Remove(livro);
+    await db.SaveChangesAsync();
+
+    return Results.NoContent();
+});
+
 app.MapPost("/livros", async (Livro livro, AppDbContext db) =>
 {
     livro.Id = Guid.NewGuid();
