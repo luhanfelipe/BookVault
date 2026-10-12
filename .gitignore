@@ -29,3 +29,8 @@ dist-ssr
 # .NET
 bin/
 obj/
+
+# SQLite
+*.db
+*.db-shm
+*.db-wal

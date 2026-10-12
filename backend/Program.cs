@@ -39,6 +39,37 @@ app.MapGet("/livros", async (AppDbContext db) =>
     return Results.Ok(livros);
 });
 
+app.MapGet("/livros/{id:guid}", async (Guid id, AppDbContext db) =>
+{
+    var livro = await db.Livros.FindAsync(id);
+
+    if (livro is null)
+    {
+        return Results.NotFound();
+    }
+
+    return Results.Ok(livro);
+});
+
+app.MapPut("/livros/{id:guid}", async (Guid id, Livro dadosAtualizados, AppDbContext db) =>
+{
+    var livro = await db.Livros.FindAsync(id);
+
+    if (livro is null)
+    {
+        return Results.NotFound();
+    }
+
+    livro.Titulo = dadosAtualizados.Titulo;
+    livro.Autor = dadosAtualizados.Autor;
+    livro.Sinopse = dadosAtualizados.Sinopse;
+    livro.AnoPublicacao = dadosAtualizados.AnoPublicacao;
+
+    await db.SaveChangesAsync();
+
+    return Results.Ok(livro);
+});
+
 app.MapPost("/livros", async (Livro livro, AppDbContext db) =>
 {
     livro.Id = Guid.NewGuid();
