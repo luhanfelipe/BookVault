@@ -39,6 +39,17 @@ app.MapGet("/livros", async (AppDbContext db) =>
     return Results.Ok(livros);
 });
 
+app.MapPost("/livros", async (Livro livro, AppDbContext db) =>
+{
+    livro.Id = Guid.NewGuid();
+    livro.DataCadastro = DateTime.UtcNow;
+
+    db.Livros.Add(livro);
+    await db.SaveChangesAsync();
+
+    return Results.Created($"/livros/{livro.Id}", livro);
+});
+
 app.MapGet("/livro-exemplo", () =>
 {
     return Results.Ok(new Livro
