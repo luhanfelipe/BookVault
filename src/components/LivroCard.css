@@ -1,0 +1,73 @@
+
+.livro-card {
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background-color: #ffffff;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.livro-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgb(0 0 0 / 8%);
+}
+
+.livro-card__capa {
+  display: block;
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  background-color: #f3f4f6;
+}
+
+.livro-card__conteudo {
+  padding: 16px;
+}
+
+.livro-card__status {
+  display: inline-block;
+  padding: 5px 9px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.livro-card__status--quero-ler {
+  background-color: #dbeafe;
+  color: #1d4ed8;
+}
+
+.livro-card__status--lendo {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.livro-card__status--lido {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.livro-card__status--em-pausa {
+  background-color: #f3e8ff;
+  color: #6b21a8;
+}
+
+.livro-card__status--abandonado {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+.livro-card__titulo {
+  margin: 12px 0 6px;
+  font-size: 1.1rem;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.livro-card__autor {
+  margin: 0;
+  color: #6b7280;
+  font-size: 0.9rem;
+}

@@ -1,0 +1,50 @@
+
+.estante {
+  width: min(100% - 48px, 1200px);
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+.estante__cabecalho {
+  margin-bottom: 28px;
+}
+
+.estante__cabecalho h1 {
+  margin: 0 0 8px;
+  font-size: 2rem;
+}
+
+.estante__cabecalho p {
+  margin: 0;
+  color: #6b7280;
+}
+
+.estante__grade {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 24px;
+}
+
+@media (max-width: 480px) {
+  .estante {
+    width: calc(100% - 32px);
+    padding: 24px 0;
+  }
+
+  .estante__cabecalho h1 {
+    font-size: 1.6rem;
+  }
+
+  .estante__grade {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .livro-card__capa {
+    height: 200px;
+  }
+
+  .livro-card__conteudo {
+    padding: 12px;
+  }
+}

@@ -1,10 +1,7 @@
+import Estante from './pages/Estante'
+
 function App() {
-  return (
-    <main>
-      <h1>BookVault</h1>
-      <p>Sua biblioteca pessoal.</p>
-    </main>
-  )
+  return <Estante />
 }
 
 export default App
