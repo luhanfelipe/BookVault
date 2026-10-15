@@ -1,0 +1,115 @@
+.detalhes-livro {
+  width: min(100% - 48px, 1000px);
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+.detalhes-livro__voltar {
+  margin-bottom: 24px;
+  padding: 10px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background-color: #ffffff;
+  color: #374151;
+  font: inherit;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.detalhes-livro__voltar:hover {
+  background-color: #f3f4f6;
+}
+
+.detalhes-livro__voltar:focus-visible {
+  outline: 2px solid #4f8a70;
+  outline-offset: 3px;
+}
+
+.detalhes-livro__conteudo {
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr);
+  gap: 36px;
+  padding: 32px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background-color: #ffffff;
+}
+
+.detalhes-livro__capa {
+  width: 100%;
+  max-height: 440px;
+  border-radius: 8px;
+  object-fit: contain;
+  object-position: top;
+  background-color: #f9fafb;
+}
+
+.detalhes-livro__informacoes {
+  min-width: 0;
+}
+
+.detalhes-livro__status {
+  display: inline-block;
+  margin-bottom: 16px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background-color: #d1fae5;
+  color: #065f46;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.detalhes-livro__informacoes h1 {
+  margin: 0 0 8px;
+  font-size: 2rem;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+.detalhes-livro__autor {
+  margin: 0;
+  color: #6b7280;
+  font-size: 1.1rem;
+}
+
+.detalhes-livro__secao {
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.detalhes-livro__secao h2 {
+  margin: 0 0 10px;
+  font-size: 1.1rem;
+  color: #374151;
+}
+
+.detalhes-livro__secao p {
+  margin: 0;
+  color: #4b5563;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 640px) {
+  .detalhes-livro {
+    width: calc(100% - 32px);
+    padding: 24px 0;
+  }
+
+  .detalhes-livro__conteudo {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+    padding: 20px 16px;
+  }
+
+  .detalhes-livro__capa {
+    width: min(100%, 260px);
+    max-height: 360px;
+    justify-self: center;
+  }
+
+  .detalhes-livro__informacoes h1 {
+    font-size: 1.6rem;
+  }
+}

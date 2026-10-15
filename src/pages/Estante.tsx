@@ -9,6 +9,8 @@ const livrosExemplo: Livro[] = [
     autor: 'L. M. Montgomery',
     capa: 'https://covers.openlibrary.org/b/title/Anne%20of%20Green%20Gables-L.jpg',
     status: 'Lido',
+    nota: 4.5,
+    observacoes: 'Uma aventura fantástica.',
   },
   {
     id: '2',
@@ -16,6 +18,8 @@ const livrosExemplo: Livro[] = [
     autor: 'J. R. R. Tolkien',
     capa: 'https://covers.openlibrary.org/b/title/The%20Hobbit-L.jpg',
     status: 'Lendo',
+    nota: 4.5,
+    observacoes: 'Uma aventura fantástica.',
   },
   {
     id: '3',
@@ -23,6 +27,8 @@ const livrosExemplo: Livro[] = [
     autor: 'Jane Austen',
     capa: 'https://covers.openlibrary.org/b/title/Pride%20and%20Prejudice-L.jpg',
     status: 'Quero ler',
+    nota: 4.5,
+    observacoes: 'Uma aventura fantástica.',
   },
   {
     id: '4',
@@ -30,6 +36,8 @@ const livrosExemplo: Livro[] = [
     autor: 'Machado de Assis',
     capa: 'https://covers.openlibrary.org/b/title/Dom%20Casmurro-L.jpg',
     status: 'Em pausa',
+    nota: 4.5,
+    observacoes: 'Uma aventura fantástica.',
   },
   {
     id: '5',
@@ -37,6 +45,8 @@ const livrosExemplo: Livro[] = [
     autor: 'Mary Shelley',
     capa: 'https://covers.openlibrary.org/b/title/Frankenstein-L.jpg',
     status: 'Abandonado',
+    nota: 4.5,
+    observacoes: 'Uma aventura fantástica.',
   },
 ]
 

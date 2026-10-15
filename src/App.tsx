@@ -1,7 +1,8 @@
-import CadastroLivro from './pages/CadastroLivro'
+
+import DetalhesLivro from './pages/DetalhesLivro'
 
 function App() {
-  return <CadastroLivro />
+  return <DetalhesLivro />
 }
 
 export default App

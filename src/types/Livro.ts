@@ -10,5 +10,7 @@ export interface Livro {
   titulo: string
   autor: string
   capa: string
+  nota: number | null
   status: StatusLeitura
+  observacoes: string
 }
