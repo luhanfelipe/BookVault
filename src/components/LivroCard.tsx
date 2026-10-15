@@ -7,11 +7,11 @@ interface LivroCardProps {
 
 function LivroCard({ livro }: LivroCardProps) {
   return (
-    <article className ="livro-card">
+    <article className="livro-card">
       <img
         className="livro-card__capa"
         src={livro.capa}
-        alt={'Capa do livro ${livro.titulo}'}
+        alt={`Capa do livro ${livro.titulo}`}
       />
 
       <div className="livro-card__conteudo">
