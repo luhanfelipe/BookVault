@@ -1,4 +1,6 @@
+
 import type { FormEvent } from 'react'
+import './CadastroLivro.css'
 
 function CadastroLivro() {
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -6,26 +8,52 @@ function CadastroLivro() {
   }
 
   return (
-    <main>
-      <h1>Cadastrar livro</h1>
+    <main className="cadastro-livro">
+      <header className="cadastro-livro__cabecalho">
+        <h1>Cadastrar livro</h1>
+        <p>Adicione um novo livro à sua biblioteca pessoal.</p>
+      </header>
 
-      <form onSubmit={handleSubmit}>
-        <div>
+      <form
+        className="cadastro-livro__formulario"
+        onSubmit={handleSubmit}
+      >
+        <div className="cadastro-livro__campo">
           <label htmlFor="titulo">Título</label>
-          <input id="titulo" name="titulo" type="text" required />
+          <input
+            id="titulo"
+            name="titulo"
+            type="text"
+            placeholder="Ex.: O Hobbit"
+            required
+          />
         </div>
 
-        <div>
+        <div className="cadastro-livro__campo">
           <label htmlFor="autor">Autor</label>
-          <input id="autor" name="autor" type="text" required />
+          <input
+            id="autor"
+            name="autor"
+            type="text"
+            placeholder="Ex.: J. R. R. Tolkien"
+            required
+          />
         </div>
 
-        <div>
+        <div className="cadastro-livro__campo">
           <label htmlFor="capa">Capa (URL da imagem)</label>
-          <input id="capa" name="capa" type="url" />
+          <input
+            id="capa"
+            name="capa"
+            type="url"
+            placeholder="https://exemplo.com/capa.jpg"
+          />
+          <span className="cadastro-livro__ajuda">
+            Informe um link para a imagem da capa, se tiver.
+          </span>
         </div>
 
-        <div>
+        <div className="cadastro-livro__campo">
           <label htmlFor="nota">Nota</label>
           <input
             id="nota"
@@ -34,12 +62,18 @@ function CadastroLivro() {
             min="0"
             max="5"
             step="0.5"
+            placeholder="De 0 a 5"
           />
         </div>
 
-        <div>
+        <div className="cadastro-livro__campo">
           <label htmlFor="status">Status de leitura</label>
-          <select id="status" name="status" defaultValue="Quero ler" required>
+          <select
+            id="status"
+            name="status"
+            defaultValue="Quero ler"
+            required
+          >
             <option value="Quero ler">Quero ler</option>
             <option value="Lendo">Lendo</option>
             <option value="Lido">Lido</option>
@@ -48,12 +82,19 @@ function CadastroLivro() {
           </select>
         </div>
 
-        <div>
+        <div className="cadastro-livro__campo">
           <label htmlFor="observacoes">Observações</label>
-          <textarea id="observacoes" name="observacoes" rows={4} />
+          <textarea
+            id="observacoes"
+            name="observacoes"
+            rows={4}
+            placeholder="Anotações pessoais sobre o livro..."
+          />
         </div>
 
-        <button type="submit">Cadastrar livro</button>
+        <button className="cadastro-livro__botao" type="submit">
+          Cadastrar livro
+        </button>
       </form>
     </main>
   )

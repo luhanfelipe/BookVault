@@ -1,0 +1,115 @@
+
+.cadastro-livro {
+  width: min(100% - 48px, 760px);
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+.cadastro-livro__cabecalho {
+  margin-bottom: 28px;
+}
+
+.cadastro-livro__cabecalho h1 {
+  margin: 0 0 8px;
+  font-size: 2rem;
+}
+
+.cadastro-livro__cabecalho p {
+  margin: 0;
+  color: #6b7280;
+  line-height: 1.5;
+}
+
+.cadastro-livro__formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 28px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background-color: #ffffff;
+}
+
+.cadastro-livro__campo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cadastro-livro__campo label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.cadastro-livro__campo input,
+.cadastro-livro__campo select,
+.cadastro-livro__campo textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background-color: #ffffff;
+  color: #111827;
+  font: inherit;
+}
+
+.cadastro-livro__campo textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.cadastro-livro__campo input:focus,
+.cadastro-livro__campo select:focus,
+.cadastro-livro__campo textarea:focus {
+  outline: 2px solid #4f8a70;
+  outline-offset: 2px;
+  border-color: #4f8a70;
+}
+
+.cadastro-livro__ajuda {
+  color: #6b7280;
+  font-size: 0.85rem;
+}
+
+.cadastro-livro__botao {
+  align-self: flex-start;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: #4f8a70;
+  color: #ffffff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.cadastro-livro__botao:hover {
+  background-color: #3d705a;
+}
+
+.cadastro-livro__botao:focus-visible {
+  outline: 2px solid #4f8a70;
+  outline-offset: 3px;
+}
+
+@media (max-width: 480px) {
+  .cadastro-livro {
+    width: calc(100% - 32px);
+    padding: 24px 0;
+  }
+
+  .cadastro-livro__cabecalho h1 {
+    font-size: 1.6rem;
+  }
+
+  .cadastro-livro__formulario {
+    padding: 20px 16px;
+    gap: 18px;
+  }
+
+  .cadastro-livro__botao {
+    width: 100%;
+  }
+}
