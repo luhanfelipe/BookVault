@@ -1,3 +1,5 @@
+
+import { useState } from 'react'
 import LivroCard from '../components/LivroCard'
 import type { Livro } from '../types/Livro'
 import './Estante.css'
@@ -51,12 +53,25 @@ const livrosExemplo: Livro[] = [
 ]
 
 function Estante() {
+  const [termoPesquisa, setTermoPesquisa] = useState('')
+
   return (
     <main className="estante">
       <header className="estante__cabecalho">
         <h1>Minha estante</h1>
         <p>Todos os seus livros em um só lugar.</p>
       </header>
+
+      <div className="estante__pesquisa">
+        <label htmlFor="pesquisa-livros">Pesquisar livros</label>
+        <input
+          id="pesquisa-livros"
+          type="search"
+          placeholder="Buscar por título ou autor..."
+          value={termoPesquisa}
+          onChange={(event) => setTermoPesquisa(event.target.value)}
+        />
+      </div>
 
       <section className="estante__grade" aria-label="Lista de livros">
         {livrosExemplo.map((livro) => (
