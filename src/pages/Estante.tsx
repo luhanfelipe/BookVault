@@ -55,6 +55,15 @@ const livrosExemplo: Livro[] = [
 function Estante() {
   const [termoPesquisa, setTermoPesquisa] = useState('')
 
+  const livrosFiltrados = livrosExemplo.filter((livro) => {
+    const termo = termoPesquisa.trim().toLocaleLowerCase()
+
+    return (
+      livro.titulo.toLocaleLowerCase().includes(termo) ||
+      livro.autor.toLocaleLowerCase().includes(termo)
+    )
+  })
+
   return (
     <main className="estante">
       <header className="estante__cabecalho">
@@ -74,9 +83,15 @@ function Estante() {
       </div>
 
       <section className="estante__grade" aria-label="Lista de livros">
-        {livrosExemplo.map((livro) => (
-          <LivroCard key={livro.id} livro={livro} />
-        ))}
+        {livrosFiltrados.length > 0 ? (
+          livrosFiltrados.map((livro) => (
+            <LivroCard key={livro.id} livro={livro} />
+          ))
+        ) : (
+          <p className="estante__sem-resultados" role="status">
+            Nenhum livro encontrado. Tente outro título ou autor.
+          </p>
+        )}
       </section>
     </main>
   )
