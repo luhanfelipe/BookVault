@@ -19,10 +19,58 @@
   color: #6b7280;
 }
 
+.estante__pesquisa {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 520px;
+  margin-bottom: 28px;
+}
+
+.estante__pesquisa label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.estante__pesquisa input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  background-color: #fff;
+  color: #111827;
+  font: inherit;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.estante__pesquisa input::placeholder {
+  color: #9ca3af;
+}
+
+.estante__pesquisa input:focus {
+  outline: none;
+  border-color: #7c3aed;
+  box-shadow: 0 0 0 3px rgb(124 58 237 / 15%);
+}
+
 .estante__grade {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 24px;
+}
+
+.estante__sem-resultados {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding: 24px;
+  border: 1px dashed #d1d5db;
+  border-radius: 10px;
+  color: #6b7280;
+  text-align: center;
 }
 
 @media (max-width: 480px) {
@@ -33,6 +81,11 @@
 
   .estante__cabecalho h1 {
     font-size: 1.6rem;
+  }
+
+  .estante__pesquisa {
+    max-width: none;
+    margin-bottom: 20px;
   }
 
   .estante__grade {
