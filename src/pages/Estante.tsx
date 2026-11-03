@@ -61,10 +61,14 @@ function Estante() {
   const livrosFiltrados = livrosExemplo.filter((livro) => {
     const termo = termoPesquisa.trim().toLocaleLowerCase()
 
-    return (
+    const correspondeAPesquisa =
       livro.titulo.toLocaleLowerCase().includes(termo) ||
       livro.autor.toLocaleLowerCase().includes(termo)
-    )
+
+    const correspondeAoFiltro =
+      filtroStatus === 'Lido' ? livro.status === 'Lido' : true
+
+    return correspondeAPesquisa && correspondeAoFiltro
   })
 
   return (
