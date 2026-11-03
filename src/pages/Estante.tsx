@@ -66,7 +66,7 @@ function Estante() {
       livro.autor.toLocaleLowerCase().includes(termo)
 
     const correspondeAoFiltro =
-      filtroStatus === 'Lido' ? livro.status === 'Lido' : true
+      filtroStatus === 'Todos' || livro.status === filtroStatus
 
     return correspondeAPesquisa && correspondeAoFiltro
   })
