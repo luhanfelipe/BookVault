@@ -4,6 +4,8 @@ import LivroCard from '../components/LivroCard'
 import type { Livro } from '../types/Livro'
 import './Estante.css'
 
+type FiltroStatus = 'Todos' | 'Lido' | 'Lendo' | 'Quero ler'
+
 const livrosExemplo: Livro[] = [
   {
     id: '1',
@@ -54,6 +56,7 @@ const livrosExemplo: Livro[] = [
 
 function Estante() {
   const [termoPesquisa, setTermoPesquisa] = useState('')
+  const [filtroStatus, setFiltroStatus] = useState<FiltroStatus>('Todos')
 
   const livrosFiltrados = livrosExemplo.filter((livro) => {
     const termo = termoPesquisa.trim().toLocaleLowerCase()
@@ -80,6 +83,22 @@ function Estante() {
           value={termoPesquisa}
           onChange={(event) => setTermoPesquisa(event.target.value)}
         />
+      </div>
+
+      <div className="estante__filtros">
+        <label htmlFor="filtro-status">Filtrar por status</label>
+        <select
+          id="filtro-status"
+          value={filtroStatus}
+          onChange={(event) =>
+            setFiltroStatus(event.target.value as FiltroStatus)
+          }
+        >
+          <option value="Todos">Todos os livros</option>
+          <option value="Lido">Lidos</option>
+          <option value="Lendo">Em leitura</option>
+          <option value="Quero ler">Quero ler</option>
+        </select>
       </div>
 
       <section className="estante__grade" aria-label="Lista de livros">
