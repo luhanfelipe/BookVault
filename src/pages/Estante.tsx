@@ -1,10 +1,11 @@
 
 import { useState } from 'react'
 import LivroCard from '../components/LivroCard'
-import type { Livro } from '../types/Livro'
+import { generosLiterarios, type Livro } from '../types/Livro'
 import './Estante.css'
 
 type FiltroStatus = 'Todos' | 'Lido' | 'Lendo' | 'Quero ler'
+type FiltroGenero = 'Todos' | keyof typeof generosLiterarios
 
 const livrosExemplo: Livro[] = [
   {
@@ -67,6 +68,7 @@ const livrosExemplo: Livro[] = [
 function Estante() {
   const [termoPesquisa, setTermoPesquisa] = useState('')
   const [filtroStatus, setFiltroStatus] = useState<FiltroStatus>('Todos')
+  const [filtroGenero, setFiltroGenero] = useState<FiltroGenero>('Todos')
 
   const estatisticas = {
     total: livrosExemplo.length,
@@ -85,7 +87,15 @@ function Estante() {
     const correspondeAoFiltro =
       filtroStatus === 'Todos' || livro.status === filtroStatus
 
-    return correspondeAPesquisa && correspondeAoFiltro
+      const correspondeAoGenero =
+        filtroGenero === 'Todos' ||
+        livro.generoPrincipal === filtroGenero
+
+    return (
+      correspondeAPesquisa &&
+      correspondeAoFiltro &&
+      correspondeAoGenero
+    )
   })
 
   return (
@@ -145,6 +155,26 @@ function Estante() {
           <option value="Lido">Lidos</option>
           <option value="Lendo">Em leitura</option>
           <option value="Quero ler">Quero ler</option>
+        </select>
+      </div>
+
+      <div className="estante__filtros">
+        <label htmlFor="filtro-genero">Filtrar por gênero</label>
+
+        <select
+          id="filtro-genero"
+          value={filtroGenero}
+          onChange={(event) =>
+            setFiltroGenero(event.target.value as FiltroGenero)
+          }
+        >
+          <option value="Todos">Todos os gêneros</option>
+
+          {Object.keys(generosLiterarios).map((genero) => (
+            <option key={genero} value={genero}>
+              {genero}
+            </option>
+          ))}
         </select>
       </div>
 
