@@ -91,8 +91,9 @@ function Estante() {
   return (
     <main className="estante">
       <header className="estante__cabecalho">
+        <span className="estante__marca">Book Vault</span>
         <h1>Minha estante</h1>
-        <p>Todos os seus livros em um só lugar.</p>
+        <p>Sua biblioteca pessoal, organizada do seu jeito.</p>
       </header>
 
       <section
