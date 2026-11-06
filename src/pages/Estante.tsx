@@ -58,6 +58,13 @@ function Estante() {
   const [termoPesquisa, setTermoPesquisa] = useState('')
   const [filtroStatus, setFiltroStatus] = useState<FiltroStatus>('Todos')
 
+  const estatisticas = {
+    total: livrosExemplo.length,
+    lidos: livrosExemplo.filter((livro) => livro.status === 'Lido').length,
+    lendo: livrosExemplo.filter((livro) => livro.status === 'Lendo').length,
+    desejados: livrosExemplo.filter((livro) => livro.status === 'Quero ler').length,
+  }
+
   const livrosFiltrados = livrosExemplo.filter((livro) => {
     const termo = termoPesquisa.trim().toLocaleLowerCase()
 
@@ -77,6 +84,31 @@ function Estante() {
         <h1>Minha estante</h1>
         <p>Todos os seus livros em um só lugar.</p>
       </header>
+
+      <section
+        className="estante__estatisticas"
+        aria-label="Estatísticas da biblioteca"
+      >
+        <article className="estatistica">
+          <h2>Total de livros</h2>
+          <p>{estatisticas.total}</p>
+        </article>
+
+        <article className="estatistica">
+          <h2>Livros lidos</h2>
+          <p>{estatisticas.lidos}</p>
+        </article>
+
+        <article className="estatistica">
+          <h2>Lendo</h2>
+          <p>{estatisticas.lendo}</p>
+        </article>
+
+        <article className="estatistica">
+          <h2>Quero ler</h2>
+          <p>{estatisticas.desejados}</p>
+        </article>
+      </section>
 
       <div className="estante__pesquisa">
         <label htmlFor="pesquisa-livros">Pesquisar livros</label>

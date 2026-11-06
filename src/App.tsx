@@ -1,8 +1,8 @@
 
-import DetalhesLivro from './pages/DetalhesLivro'
+import Estante from './pages/Estante'
 
 function App() {
-  return <DetalhesLivro />
+  return <Estante />
 }
 
 export default App
