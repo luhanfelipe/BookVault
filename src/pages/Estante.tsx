@@ -15,6 +15,8 @@ const livrosExemplo: Livro[] = [
     status: 'Lido',
     nota: 4.5,
     observacoes: 'Uma aventura fantástica.',
+    generoPrincipal: 'Drama',
+    subgeneros: ['Drama familiar'],
   },
   {
     id: '2',
@@ -24,6 +26,8 @@ const livrosExemplo: Livro[] = [
     status: 'Lendo',
     nota: 4.5,
     observacoes: 'Uma aventura fantástica.',
+    generoPrincipal: 'Fantasia',
+    subgeneros: ['Alta fantasia', 'Fantasia épica'],
   },
   {
     id: '3',
@@ -33,6 +37,8 @@ const livrosExemplo: Livro[] = [
     status: 'Quero ler',
     nota: 4.5,
     observacoes: 'Uma aventura fantástica.',
+    generoPrincipal: 'Romance',
+    subgeneros: ['Romance de época', 'Romance histórico'],
   },
   {
     id: '4',
@@ -42,6 +48,8 @@ const livrosExemplo: Livro[] = [
     status: 'Em pausa',
     nota: 4.5,
     observacoes: 'Uma aventura fantástica.',
+    generoPrincipal: 'Drama',
+    subgeneros: ['Drama psicológico'],
   },
   {
     id: '5',
@@ -51,6 +59,8 @@ const livrosExemplo: Livro[] = [
     status: 'Abandonado',
     nota: 4.5,
     observacoes: 'Uma aventura fantástica.',
+    generoPrincipal: 'Terror',
+    subgeneros: ['Gótico', 'Terror psicológico'],
   },
 ]
 

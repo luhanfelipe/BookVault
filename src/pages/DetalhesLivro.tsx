@@ -11,6 +11,8 @@ const livro: Livro = {
   status: 'Lido',
   observacoes:
     'Uma aventura envolvente, com personagens marcantes e um universo fantástico.',
+  generoPrincipal: 'Fantasia',
+  subgeneros: ['Alta fantasia', 'Fantasia épica'],
 }
 
 function DetalhesLivro() {
@@ -38,6 +40,20 @@ function DetalhesLivro() {
 
           <h1>{livro.titulo}</h1>
           <p className="detalhes-livro__autor">{livro.autor}</p>
+
+          <section className="detalhes-livro__secao">
+            <h2>Gênero principal</h2>
+            <p>{livro.generoPrincipal}</p>
+          </section>
+
+          <section className="detalhes-livro__secao">
+            <h2>Subgêneros</h2>
+            <p>
+              {livro.subgeneros.length > 0
+                ? livro.subgeneros.join(', ')
+                : 'Nenhum subgênero adicionado.'}
+            </p>
+          </section>
 
           <section className="detalhes-livro__secao">
             <h2>Minha avaliação</h2>
