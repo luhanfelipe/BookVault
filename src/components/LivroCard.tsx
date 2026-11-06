@@ -26,6 +26,18 @@ function LivroCard({ livro }: LivroCardProps) {
         <h2 className="livro-card__titulo">{livro.titulo}</h2>
         <p className="livro-card__autor">{livro.autor}</p>
       </div>
+
+      <div className="livro-card__generos">
+        <span className="livro-card__genero-principal">
+          {livro.generoPrincipal}
+        </span>
+
+        {livro.subgeneros.length > 0 && (
+          <p className="livro-card__subgeneros">
+            {livro.subgeneros.join(' • ')}
+          </p>
+        )}
+      </div>
     </article>
   )
 }
