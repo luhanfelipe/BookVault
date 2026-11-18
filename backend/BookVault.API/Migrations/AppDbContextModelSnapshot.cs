@@ -83,7 +83,8 @@ namespace BookVault.API.Migrations
                         .HasColumnType("longtext");
 
                     b.Property<decimal?>("Nota")
-                        .HasColumnType("decimal(65,30)");
+                        .HasPrecision(2, 1)
+                        .HasColumnType("decimal(2,1)");
 
                     b.Property<string>("Observacoes")
                         .HasColumnType("longtext");

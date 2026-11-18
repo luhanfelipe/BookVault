@@ -34,5 +34,9 @@ public class AppDbContext : DbContext
             .HasOne(lc => lc.Categoria)
             .WithMany(c => c.Livros)
             .HasForeignKey(lc => lc.CategoriaId);
+
+        modelBuilder.Entity<Livro>()
+            .Property(l => l.Nota)
+            .HasPrecision(2, 1);
     }
 }
