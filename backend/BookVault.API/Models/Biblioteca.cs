@@ -10,4 +10,7 @@ public class Biblioteca
     public Guid UsuarioId { get; set; }
 
     public ICollection<Livro> Livros { get; set; } = new List<Livro>();
+
+    public ICollection<Categoria> Categorias { get; set; }
+        = new List<Categoria>();
 }

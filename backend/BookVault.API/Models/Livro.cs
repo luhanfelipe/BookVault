@@ -22,6 +22,9 @@ public class Livro
     public string? Observacoes { get; set; }
 
     public Guid BibliotecaId { get; set; }
+
+    public ICollection<LivroCategoria> Categorias { get; set; }
+        = new List<LivroCategoria>();
 }
 
 public enum StatusLeitura

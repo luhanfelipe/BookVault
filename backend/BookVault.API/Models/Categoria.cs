@@ -10,4 +10,7 @@ public class Categoria
     public Guid BibliotecaId { get; set; }
 
     public Biblioteca Biblioteca { get; set; } = null!;
+
+    public ICollection<LivroCategoria> Livros { get; set; }
+        = new List<LivroCategoria>();
 }
