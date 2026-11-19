@@ -1,3 +1,4 @@
+
 using BookVault.API.Data;
 using BookVault.API.DTOs.Livros;
 using BookVault.API.Models;
@@ -56,6 +57,7 @@ public class LivrosController : ControllerBase
             StatusLeitura = dto.StatusLeitura,
             Observacoes = dto.Observacoes,
             BibliotecaId = dto.BibliotecaId,
+
             Categorias = categorias.Select(c => new LivroCategoria
             {
                 CategoriaId = c.Id,
@@ -66,10 +68,15 @@ public class LivrosController : ControllerBase
         _context.Livros.Add(livro);
         await _context.SaveChangesAsync();
 
+        var livroSalvo = await _context.Livros
+            .Include(l => l.Categorias)
+                .ThenInclude(lc => lc.Categoria)
+            .FirstAsync(l => l.Id == livro.Id);
+
         return CreatedAtAction(
             nameof(ObterPorId),
             new { id = livro.Id },
-            livro
+            ParaResposta(livroSalvo)
         );
     }
 
@@ -78,6 +85,7 @@ public class LivrosController : ControllerBase
     {
         var livro = await _context.Livros
             .Include(l => l.Categorias)
+                .ThenInclude(lc => lc.Categoria)
             .FirstOrDefaultAsync(l => l.Id == id);
 
         if (livro is null)
@@ -85,6 +93,56 @@ public class LivrosController : ControllerBase
             return NotFound();
         }
 
-        return Ok(livro);
+        return Ok(ParaResposta(livro));
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> Listar([FromQuery] Guid bibliotecaId)
+    {
+        if (bibliotecaId == Guid.Empty)
+        {
+            return BadRequest("O ID da biblioteca é obrigatório.");
+        }
+
+        var bibliotecaExiste = await _context.Bibliotecas
+            .AnyAsync(b => b.Id == bibliotecaId);
+
+        if (!bibliotecaExiste)
+        {
+            return NotFound("Biblioteca não encontrada.");
+        }
+
+        var livros = await _context.Livros
+            .Where(l => l.BibliotecaId == bibliotecaId)
+            .Include(l => l.Categorias)
+                .ThenInclude(lc => lc.Categoria)
+            .ToListAsync();
+
+        var resposta = livros.Select(ParaResposta).ToList();
+
+        return Ok(resposta);
+    }
+
+    private static LivroRespostaDto ParaResposta(Livro livro)
+    {
+        return new LivroRespostaDto
+        {
+            Id = livro.Id,
+            Titulo = livro.Titulo,
+            Autor = livro.Autor,
+            Descricao = livro.Descricao,
+            CapaUrl = livro.CapaUrl,
+            AnoPublicacao = livro.AnoPublicacao,
+            Nota = livro.Nota,
+            StatusLeitura = livro.StatusLeitura.ToString(),
+            Observacoes = livro.Observacoes,
+
+            Categorias = livro.Categorias.Select(lc => new CategoriaLivroDto
+            {
+                Id = lc.Categoria.Id,
+                Nome = lc.Categoria.Nome,
+                Principal = lc.Principal
+            }).ToList()
+        };
     }
 }
